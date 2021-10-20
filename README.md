@@ -9,7 +9,7 @@
 
 ### 二、各个字段解释如下：
 
-- sever：server酱开关，`on`是打开状态；`off`失败状态；
+- sever：server酱开关，`on`是打开状态；`off`关闭状态；
 - sckey：server酱的key，如果不需要推送，留空即可；申请地址见：[申请server酱key](https://sct.ftqq.com/sendkey) ，申请key微信扫码登录后即可直接获取key；
 
 ### 三、修改自己glados的账户的cookie
