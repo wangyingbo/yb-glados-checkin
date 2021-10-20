@@ -1,7 +1,7 @@
 # yb-glados-checkin
 
 
-## 用于腾讯云函数的glados签到脚本
+## 用于腾讯云函数的glados签到脚本；[云函数地址](https://console.cloud.tencent.com/scf/index?rid=15)
 
 **使用说明**
 
