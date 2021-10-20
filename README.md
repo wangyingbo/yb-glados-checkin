@@ -21,3 +21,5 @@
     dict['key3'] = "third_cookie"
     
 ```
+
+### 四、配置云函数的触发定时任务，参照[crontab](https://crontab.guru/)表达式；
