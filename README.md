@@ -23,3 +23,21 @@
 ```
 
 ### 四、配置云函数的触发定时任务，参照[crontab](https://crontab.guru/)表达式；
+
+### 五、仓库中`per_glados_checkin.py`脚本是通过一个脚本给多个用户签到的脚本，可支持server酱推送和企业微信推送下两种：
+
+- 如果是通过server酱推送签到成功通知，则dict的key为"邮箱&&sckey"，dict的value为本用户的cookie；如果只想签到而不想推送，则sckey用`none`代替；
+
+```
+	dict = {}
+    # 以&&分割，前面的是邮箱，后面是推送到微信的server酱的sckey
+    dict['qq_mail&&sckey'] = "first_user_cookie"
+```
+
+- 如果是通过企业微信推送给微信来推送签到成功通知，则dictWC的key为"邮箱&&user"，user可用"|"分割拼接多个；dictWC的value为本用户的cookie；如果只想签到而不想推送，则user用`none`代替；
+
+```
+    dictWC = {}
+    # 以&&分割，前面的是邮箱，后面是利用企业微信推送到微信的user，user可用"|"分割拼接多个；
+    dictWC['qq_mail&&user'] = "first_user_cookie"
+```
