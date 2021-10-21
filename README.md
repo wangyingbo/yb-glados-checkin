@@ -37,7 +37,7 @@
 - 如果是通过企业微信推送给微信来推送签到成功通知，则dictWC的key为"邮箱&&user"，user可用"|"分割拼接多个；dictWC的value为本用户的cookie；如果只想签到而不想推送，则user用`none`代替；
 
 ```
-    dictWC = {}
-    # 以&&分割，前面的是邮箱，后面是利用企业微信推送到微信的user，user可用"|"分割拼接多个；
-    dictWC['qq_mail&&user'] = "first_user_cookie"
+	dictWC = {}
+	# 以&&分割，前面的是邮箱，后面是利用企业微信推送到微信的user，user可用"|"分割拼接多个；
+	dictWC['qq_mail&&user'] = "first_user_cookie"
 ```
