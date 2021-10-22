@@ -41,3 +41,15 @@
 	# 以&&分割，前面的是邮箱，后面是利用企业微信推送到微信的user，user可用"|"分割拼接多个；
 	dictWC['qq_mail&&user'] = "first_user_cookie"
 ```
+
+- 可以通过创建对象来创建每个用户，第一个参数为名字，第二个参数为server酱的key，第三个参数为企业微信的user，第四个为cookie；
+
+```
+    # 第一个用户
+    user1 = Model("2532084725_qq","none","wangyingbo","first_user_cookie")
+    objArray.append(user1)
+
+    # 第二个用户
+    user2 = Model("wangyingbo0528_gmail","none","wangyingbo","second_user_cookie")
+    objArray.append(user2)
+```

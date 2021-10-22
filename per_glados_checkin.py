@@ -3,6 +3,15 @@ import requests ,os,json
 sever = 'on'
 referer = 'https://glados.rocks/console/checkin'
 
+
+class Model:
+    def __init__(self,name,sckey,wcuser,cookie):
+        self.name = name
+        self.sckey = sckey
+        self.wcuser = wcuser
+        self.cookie = cookie
+
+
 def start():  
     url= "https://glados.rocks/api/user/checkin"
     url2= "https://glados.rocks/api/user/status"
@@ -12,6 +21,37 @@ def start():
     payload={
         'token': 'glados_network'
     }
+
+    # -----------------------通过对象创建----------------------------------
+    objArray = []
+
+    # 第一个用户
+    user1 = Model("2532084725_qq","none","wangyingbo","first_user_cookie")
+    objArray.append(user1)
+
+    # 第二个用户
+    user2 = Model("wangyingbo0528_gmail","none","wangyingbo","second_user_cookie")
+    objArray.append(user2)
+
+    for obj in objArray:
+        checkin = requests.post(url,headers={'cookie': obj.cookie ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
+        state =  requests.get(url2,headers={'cookie': obj.cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
+        # print(res)
+        if 'message' in checkin.text:
+            mess = checkin.json()['message']
+            if mess == '\u6ca1\u6709\u6743\u9650':
+                requests.get('https://sc.ftqq.com/' + sckey + '.send?text=' + key + '账号cookie过期')
+            time = state.json()['data']['leftDays']
+            time = time.split('.')[0]
+            #print(time)
+            messStr = obj.name + ', ' + mess
+            sckey = obj.sckey
+            wcuser = obj.wcuser
+            if len(sckey) > 0:
+                notice(time,obj.sckey,sever,messStr)
+            if len(wcuser) > 0:
+                noticeWC(time,obj.wcuser,sever,messStr)
+
     # -----------------------server酱----------------------------------
     dict = {}
     # 以&&分割，前面的是邮箱，后面是推送到微信的server酱的sckey
